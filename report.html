@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flowers Studio | Professional Report</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='style1.css') }}">
+</head>
+<body class="report-body">
+
+<!-- Report Container -->
+<div class="report-container">
+
+<h2>Booking Report</h2>
+
+<table>
+
+<tr>
+<th>Name</th>
+<th>Email</th>
+<th>Date</th>
+<th>Guests</th>
+</tr>
+
+{% for booking in bookings %}
+
+<tr>
+<td>{{ booking.name }}</td>
+<td>{{ booking.email }}</td>
+<td>{{ booking.date }}</td>
+<td>{{ booking.guests }}</td>
+</tr>
+
+{% endfor %}
+
+</table>
+
+</div>
+
+</body>
+
+    <!-- Header -->
+    <h1>Flowers Studio</h1>
+    <h2>Luxury Event Management Website Report</h2>
+
+    <!-- 1. Introduction -->
+    <section>
+        <h3>1. Introduction</h3>
+        <p>
+            Flowers Studio is a premium event management platform designed to provide 
+            elegant and professional services for weddings, corporate events, and private celebrations. 
+            This website allows clients to explore services, view galleries, read testimonials, 
+            contact the team, and make secure payments easily.
+        </p>
+    </section>
+
+    <!-- 2. Objectives -->
+    <section>
+        <h3>2. Objectives</h3>
+        <ul>
+            <li>Provide a professional online platform for event planning services</li>
+            <li>Showcase luxury decorations, themes, and packages</li>
+            <li>Enable easy communication with clients</li>
+            <li>Allow secure online payment and bookings</li>
+            <li>Offer a modern, responsive, and attractive interface</li>
+        </ul>
+    </section>
+
+    <!-- 3. Features -->
+    <section>
+        <h3>3. Features of the Website</h3>
+        <ul>
+            <li>Home page with elegant hero section</li>
+            <li>About section describing the company</li>
+            <li>Services section for event planning services</li>
+            <li>Gallery to showcase previous events</li>
+            <li>Testimonials from satisfied clients</li>
+            <li>Contact page for inquiries</li>
+            <li>Login and Signup system</li>
+            <li>Secure payment system for booking services</li>
+        </ul>
+    </section>
+
+    <!-- 4. Statistical Goals -->
+    <section>
+        <h3>4. Statistical Goals</h3>
+        <div class="report-highlight">
+            <ul>
+                <li><strong>500+</strong> Successful Events Completed</li>
+                <li><strong>200+</strong> Luxury Weddings Organized</li>
+                <li><strong>150+</strong> Corporate Events Managed</li>
+                <li><strong>98%</strong> Customer Satisfaction Rate</li>
+                <li><strong>50+</strong> Venues Partnered</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- 5. Technologies Used -->
+    <section>
+        <h3>5. Technologies Used</h3>
+        <table class="report-table">
+            <tr>
+                <th>Technology</th>
+                <th>Purpose</th>
+            </tr>
+            <tr>
+                <td>HTML</td>
+                <td>Website Structure</td>
+            </tr>
+            <tr>
+                <td>CSS</td>
+                <td>Styling and Luxury Design</td>
+            </tr>
+            <tr>
+                <td>JavaScript</td>
+                <td>Interactive Features</td>
+            </tr>
+            <tr>
+                <td>VS Code</td>
+                <td>Development Environment</td>
+            </tr>
+        </table>
+    </section>
+
+    <!-- 6. Future Goals -->
+    <section>
+        <h3>6. Future Goals</h3>
+        <ul>
+            <li>Expand website for international clients</li>
+            <li>Add real-time chat support</li>
+            <li>Develop a mobile application</li>
+            <li>Integrate advanced booking and event tracking</li>
+            <li>Create an admin dashboard for event management</li>
+        </ul>
+    </section>
+
+    <!-- 7. Conclusion -->
+    <section>
+        <h3>7. Conclusion</h3>
+        <p>
+            Flowers Studio successfully demonstrates the use of modern web technologies to 
+            build a responsive, visually appealing, and professional event management platform. 
+            The website provides clients with luxury services and a seamless booking experience.
+        </p>
+    </section>
+
+</div>
+
+<!-- Footer -->
+<div class="report-footer">
+    © 2026 Flowers Studio | Luxury Event Management
+</div>
+
+</body>
+</html>
+

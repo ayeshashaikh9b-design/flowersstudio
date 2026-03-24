@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>FLOWERS STUDIO | Wedding Planner</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='style1.css') }}">
+ <!-- Link to your CSS file -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- WhatsApp Enquiry Button -->
+<a href="https://wa.me/919767478667" target="_blank" class="whatsapp-button"> 
+    <img src="https://cdn-icons-png.flaticon.com/512/733/733585.png" alt="WhatsApp" />
+</a>
+
+ 
+ <!-- ✅ Navigation Bar Here ---/--- Header -->
+ <header>
+    <div class="logo">FLOWERS <span>STUDIO</span></div>
+
+    <nav>
+        <ul class="nav-links">
+            <li><a href="/">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="/testimonials">Testimonials</a></li>
+            <li><a href="#contact">Contact</a></li>
+            <li><a href="/report">Report</a></li>
+  <!-- 🔐 LOGIN / LOGOUT LOGIC -->
+<ul>
+    {% if session.get('admin_logged_in') %}
+        <li><a href="/admin" class="admin-btn">Admin Panel</a></li>
+        <li><a href="/logout" class="logout-btn">Logout</a></li>
+    {% elif session.get('user_logged_in') %}
+        <li>Hi, {{ session.get('username') }}</li>
+        <li><a href="/logout" class="logout-btn">Logout</a></li>
+    {% else %}
+        <li><a href="/login" class="login-btn">User Login</a></li>
+        <li><a href="/admin-login" class="admin-btn">Admin Login</a></li>
+    {% endif %}
+</ul>
+
+    </ul>
+    </nav>
+</header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1>Your Perfect Wedding Starts Here</h1>
+            <p>Elegant planning, breathtaking decor, and seamless coordination for your special day.</p>
+            <a href="#contact" class="btn">Book Consultation</a>
+        </div>
+    </section>
+
+<!-- About Section -->
+<section id="about" class="section about-section">
+    <h2 class="section-title">About Flower's Studio</h2>
+
+    <div class="about-container">
+        <div class="about-text">
+            <p>
+                 Flower Studio, is a professional wedding planning and event coordination company dedicated to creating elegant and unforgettable celebrations.
+            </p>
+
+            <p>
+                Under the leadership of Mr. Hamza Shaikh, our experienced coordinator, our skilled team carefully manages every detail — including floral design, venue decoration, event styling, guest management, and full wedding execution.
+            </p>
+
+            <p>
+                With creativity, precision, and passion, we ensure that every wedding we plan becomes a beautiful and memorable experience for our clients.
+            </p>
+
+            <div class="about-highlights">
+                <div>✔ Professional Coordination</div>
+                <div>✔ Luxury Floral Design</div>
+                <div>✔ Complete Wedding Management</div>
+                <div>✔ Dedicated Expert Team</div>
+            </div>
+        </div>
+
+        <div class="about-image">
+            <img src="https://images.unsplash.com/photo-1529636798458-92182e662485" alt="Wedding Planning">
+        </div>
+    </div>
+</section>
+
+    <P>Flower Studio, is a trusted name in luxury wedding planning. Under the leadership of Mr. Hamza Shaikh, our expert team manages every aspect of your celebration — including floral design, décor styling, venue coordination, and seamless event execution — delivering a wedding experience that is elegant, organized, and unforgettable.</P>
+    <!-- Services -->
+    <section id="services" class="section">
+        <h2 class="section-title">Our Wedding Services</h2>
+
+        <div class="service-container">
+            <div class="card">
+                <h3>Full Wedding Planning</h3>
+                <p>From concept to completion, we manage every detail of your wedding day.</p>
+            </div>
+
+            <div class="card">
+                <h3>Luxury Decoration</h3>
+                <p>Beautiful floral setups, stage décor, lighting, and themed styling.</p>
+            </div>
+
+            <div class="card">
+                <h3>Destination Weddings</h3>
+                <p>Memorable weddings at exotic locations with complete arrangements.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery -->
+    <section id="gallery" class="section soft-bg">
+        <h2 class="section-title">Wedding Highlights</h2>
+
+        <div class="gallery">
+            <img src="https://images.unsplash.com/photo-1519741497674-611481863552" alt="">
+            <img src="https://images.unsplash.com/photo-1520854221256-17451cc331bf" alt="">
+            <img src="https://images.unsplash.com/photo-1530023367847-a683933f4172" alt="">
+        </div>
+    </section>
+
+    <!-- Contact Enquiry -->
+    <section id="enquiry" class="luxury-enquiry">
+
+<h2 class="enquiry-title">Let's Plan Your Dream Wedding</h2>
+<p class="enquiry-sub">Tell us about your special day and our team will contact you.</p>
+
+<div class="enquiry-container">
+
+<form method="POST" action="/book" class="luxury-form">
+
+<input type="text" name="name" placeholder="Bride & Groom Name" required>
+
+<input type="email" name="email" placeholder="Email Address" required>
+
+<input type="date" name="date" required>
+
+<input type="number" name="guests" placeholder="Number of Guests">
+
+<textarea name="message" placeholder="Describe your wedding vision"></textarea>
+
+<button type="submit" class="luxury-btn">Send Enquiry</button>
+
+</form>
+
+</div>
+
+</section>
+
+    <!-- Contact Section -->
+<section id="contact" class="contact-section">
+    <h2 class="section-title">Contact Us</h2>
+
+    <div class="contact-container">
+
+        <div class="contact-card">
+            <h3>📍 Address</h3>
+            <p>1 M.G Road</p>
+            <p>Pune Camp & Ghorpadi Gaon</p>
+            <p>Pune, Maharashtra</p>
+        </div>
+
+        <div class="contact-card">
+            <h3>📞 Phone / WhatsApp</h3>
+            <p><a href="https://wa.me/919767478667" target="_blank">9767478667</a></p>
+            <p><a href="https://wa.me/919518586404" target="_blank">9518586404</a></p>
+            <p>📧 Email: <a href="mailto:hamzashaikh1432@gmail.com">hamzashaikh1432@gmail.com</a></p>
+        </div>
+
+        <div class="contact-card">
+            <h3>📸 Instagram</h3>
+            <p>
+                <a href="https://instagram.com/flowers_studio67" target="_blank">
+                    @flowers_studio67
+                </a>
+            </p>
+        </div>
+
+ <div class="contact-right">
+     <img src="{{ url_for('static', filename='card.jpg') }}"  alt="Visiting Card" class="card-image">
+    </div>
+
+
+<!-- ✅ Paste Google Map Here -->
+<div class="map-box">
+    <iframe 
+        src="https://www.google.com/maps?q=MG+Road+Pune&output=embed"
+        width="100%" 
+        height="300"
+        style="border:0;"
+        loading="lazy">
+    </iframe>
+</div>
+</section>
+
+    </div>
+</section>
+
+
+ <!---Booking --->
+
+   <section id="payment" class="payment-section">
+
+<h2 class="section-title">Book Your Wedding Date</h2>
+
+<div class="payment-container">
+
+<div class="booking-form">
+
+<form method="POST" action="/book">
+
+<input type="text" name="name" placeholder="Your Name" required>
+
+<input type="email" name="email" placeholder="Email Address" required>
+
+<input type="date" name="date" required>
+
+<input type="number" name="guests" placeholder="Guest Count">
+
+<button type="submit" class="book-btn">Confirm Booking</button>
+
+</form>
+
+</div>
+
+</div>
+
+</section>
+
+        <div class="payment-box">
+            <h3>Pay Advance</h3>
+            <p>Scan the QR code to confirm your wedding booking.</p>
+
+          <img src="{{ url_for('static', filename='qr.png') }}" alt="UPI QR Code" class="qr-image">
+
+            <p>UPI ID: hamzashaikh1432@okaxis</p>
+        </div>
+
+    </div>
+</section>
+
+    <!-- Footer -->
+    <footer>
+        © 2026 FLOWER'S STUDIO  | Crafted With Love 💍
+           
+        <p>_Ayesha Shaikh</p> 
+        
+    </footer>
+
+
+<!-- Floating Admin Button (only for admin) -->
+{% if admin_access %}
+<!-- Floating Admin Button -->
+<button onclick="window.location.href='/admin-login'"
+        style="position:fixed;bottom:20px;right:20px;
+               padding:12px 20px;background:#caa14a;color:white;
+               border:none;border-radius:8px;cursor:pointer;
+               box-shadow:0 5px 15px rgba(0,0,0,0.2);
+               font-weight:600;">
+    Admin Panel
+</button>
+{% endif %}
+
+</body>
+</html>

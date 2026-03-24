@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>🌸 Flower Studio Admin</title>
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap">
+
+<style>
+body{
+    margin:0;
+    font-family:'Poppins',sans-serif;
+    background:#0f172a;
+    color:white;
+}
+
+/* Sidebar */
+.sidebar{
+    width:240px;
+    height:100vh;
+    background:#020617;
+    position:fixed;
+    padding:20px;
+}
+
+.sidebar h2{
+    text-align:center;
+    color:#f472b6;
+}
+
+.sidebar li{
+    list-style:none;
+    padding:12px;
+    cursor:pointer;
+    border-radius:6px;
+}
+
+.sidebar li:hover{
+    background:#1e293b;
+}
+
+/* Main */
+.main{
+    margin-left:240px;
+    padding:20px;
+}
+
+.section{
+    display:none;
+}
+
+.active{
+    display:block;
+}
+
+/* Cards */
+.cards{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+    gap:15px;
+}
+
+.card{
+    background:#1e293b;
+    padding:20px;
+    border-radius:10px;
+}
+
+/* List */
+.list-item{
+    background:#1e293b;
+    padding:10px;
+    margin:10px 0;
+    border-radius:6px;
+}
+
+/* Buttons */
+button{
+    padding:6px 10px;
+    border:none;
+    border-radius:6px;
+    cursor:pointer;
+}
+
+.delete{
+    background:red;
+    color:white;
+}
+
+.logout{
+    float:right;
+    background:#f472b6;
+    color:white;
+}
+</style>
+</head>
+
+<body>
+
+<!-- SIDEBAR -->
+<div class="sidebar">
+<h2>🌸 Admin</h2>
+<ul>
+<li onclick="show('dashboard')">📊 Dashboard</li>
+<li onclick="show('customers')">👤 Customers</li>
+<li onclick="show('orders')">🛒 Orders</li>
+<li onclick="show('payments')">💳 Payments</li>
+<li onclick="show('bookings')">📅 Bookings</li>
+</ul>
+</div>
+
+<!-- MAIN -->
+<div class="main">
+
+<a href="/logout"><button class="logout">Logout</button></a>
+
+<!-- DASHBOARD -->
+<div id="dashboard" class="section active">
+<h1>Dashboard</h1>
+
+<div class="cards">
+<div class="card">👤 Customers: {{ total_customers }}</div>
+<div class="card">🛒 Orders: {{ total_orders }}</div>
+<div class="card">💰 Revenue: ₹{{ total_revenue }}</div>
+</div>
+</div>
+
+<!-- CUSTOMERS -->
+<div id="customers" class="section">
+<h2>👤 Customers</h2>
+
+<form method="POST" action="/add-customer">
+<input name="name" placeholder="Name">
+<input name="email" placeholder="Email">
+<input name="phone" placeholder="Phone">
+<button>Add</button>
+</form>
+
+{% for c in customers %}
+<div class="list-item">
+{{ c.name }} - {{ c.email }}
+</div>
+{% endfor %}
+</div>
+
+<!-- ORDERS -->
+<div id="orders" class="section">
+<h2>🛒 Orders</h2>
+
+<form method="POST" action="/add-order">
+<input name="item" placeholder="Item">
+<button>Add</button>
+</form>
+
+{% for o in orders %}
+<div class="list-item">
+{{ o.item }}
+</div>
+{% endfor %}
+</div>
+
+<!-- PAYMENTS -->
+<div id="payments" class="section">
+<h2>💳 Payments</h2>
+
+<form method="POST" action="/add-payment">
+<input name="amount" placeholder="Amount">
+<select name="status">
+<option>Paid</option>
+<option>Pending</option>
+</select>
+<button>Add</button>
+</form>
+
+{% for p in payments %}
+<div class="list-item">
+₹{{ p.amount }} - {{ p.status }}
+</div>
+{% endfor %}
+</div>
+
+<!-- BOOKINGS -->
+<div id="bookings" class="section">
+<h2>📅 Bookings</h2>
+
+{% for b in bookings %}
+<div class="list-item">
+{{ b.name }} - {{ b.date }}
+<a href="/delete-booking/{{ b.id }}">
+<button class="delete">❌</button>
+</a>
+</div>
+{% endfor %}
+</div>
+
+</div>
+
+<!-- JS -->
+<script>
+function show(id){
+    document.querySelectorAll('.section').forEach(s=>s.classList.remove('active'));
+    document.getElementById(id).classList.add('active');
+}
+</script>
+
+</body>
+</html>

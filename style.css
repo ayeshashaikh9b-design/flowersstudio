@@ -1,0 +1,489 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Poppins:wght@300;400;500;600&display=swap');
+
+/* Reset */
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:'Poppins',sans-serif;
+    background:#fff9f8;
+    color:#333;
+    padding-top:90px; /* Prevents fixed header covering sections */
+}
+
+/* Header */
+header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:20px 80px;
+    position:fixed;
+    width:100%;
+    top:0;
+    left:0;
+    background:rgba(255,255,255,0.95);
+    backdrop-filter:blur(10px);
+    z-index:1000;
+}
+
+.whatsapp-button {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 60px;
+    height: 60px;
+    z-index: 1000;
+    transition: transform 0.3s;
+}
+
+.whatsapp-button img {
+    width: 100%;
+    height: 100%;
+}
+
+.whatsapp-button:hover {
+    transform: scale(1.1);
+}
+
+
+
+/* Logo */
+.logo{
+    font-size:26px;
+    font-weight:700;
+}
+
+.logo span{
+    color:#caa14a;
+}
+
+/* Navigation */
+nav ul{
+    list-style:none;
+    display:flex;
+    gap:30px;
+}
+
+nav ul li a{
+    text-decoration:none;
+    color:#333;
+    font-weight:500;
+    transition:0.3s;
+}
+
+nav ul li a:hover{
+    color:#caa14a;
+}
+
+/* Login Button */
+.login-btn{
+    background:gold;
+    color:black !important;
+    padding:8px 18px;
+    border-radius:25px;
+    font-weight:600;
+    transition:0.3s;
+}
+
+.login-btn:hover{
+    background:#000;
+    color:gold !important;
+}
+
+/* Logout Button */
+.logout-btn{
+    padding:10px 20px;
+    background:#ef4444; /* red */
+    color:white;
+    border:none;
+    border-radius:20px;
+    text-decoration:none;
+    font-weight:500;
+    transition:0.3s;
+}
+
+/* Hover */
+.logout-btn:hover{
+    background:#dc2626;
+}
+
+
+/* Username */
+.user-name{
+    color:#333;
+    font-weight:600;
+}
+
+/* Logout Button */
+.logout-btn{
+    background:#ef4444;
+    color:white !important;
+    padding:8px 16px;
+    border-radius:20px;
+    text-decoration:none;
+    font-weight:600;
+    transition:0.3s;
+}
+
+.logout-btn:hover{
+    background:#dc2626;
+}
+
+/* ---------------- Admin Panel Floating Button ---------------- */
+.admin-floating-btn {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    padding:8px 18px;
+    background-color: #caa14a; /* golden accent */
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    font-weight: 600;
+    transition: 0.3s;
+}
+
+.admin-floating-btn:hover {
+    background-color: #b89542; /* darker on hover */
+    transform: translateY(-3px);
+}
+
+
+/* Admin Button Style */
+.admin-btn{
+    padding:8px 8px;
+    background: linear-gradient(135deg,#FFD358);
+    color:rgb(11, 11, 11);
+    border:none;
+    border-radius:25px;
+    text-decoration:none;
+    font-weight:600;
+    transition:0.3s;
+    box-shadow:0 4px 10px rgba(219, 251, 61, 0.4);
+}
+
+/* Hover Effect */
+.admin-btn:hover{
+    background: linear-gradient(135deg, #edd59c);
+    transform: scale(1.05);
+}
+
+
+
+/* Hero Section */
+.hero{
+    height:100vh;
+    background-image:url("https://images.unsplash.com/photo-1519741497674-611481863552");
+    background-size:cover;
+    background-position:center;
+    background-repeat:no-repeat;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    color:white;
+}
+
+.hero-content{
+    background:rgba(0,0,0,0.4);
+    padding:40px;
+    border-radius:10px;
+}
+
+.hero h1{
+    font-size:50px;
+    margin-bottom:20px;
+}
+
+.hero p{
+    font-size:20px;
+    margin-bottom:25px;
+}
+
+/* Button */
+.btn{
+    padding:12px 35px;
+    background:#caa14a;
+    color:white;
+    border:none;
+    border-radius:30px;
+    text-decoration:none;
+    font-weight:600;
+    transition:0.4s;
+}
+
+.btn:hover{
+    background:#a88337;
+    transform:scale(1.05);
+}
+
+/* Sections */
+.section{
+    padding:100px 80px;
+    text-align:center;
+}
+
+.section-title{
+    font-size:40px;
+    margin-bottom:50px;
+    font-family:'Playfair Display',serif;
+}
+
+/* About Section */
+.about-section{
+    background:#fffdfb;
+}
+
+.about-container{
+    display:flex;
+    align-items:center;
+    gap:50px;
+    max-width:1100px;
+    margin:auto;
+}
+
+.about-text{
+    flex:1;
+    text-align:left;
+}
+
+.about-text p{
+    margin-bottom:20px;
+    font-size:17px;
+    line-height:1.7;
+}
+
+.about-highlights{
+    margin-top:20px;
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+    gap:10px;
+    font-weight:500;
+    color:#caa14a;
+}
+
+.about-image img{
+    width:100%;
+    border-radius:15px;
+    box-shadow:0 10px 30px rgba(0,0,0,0.1);
+}
+
+/* Services */
+.service-container{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:30px;
+}
+
+.card{
+    background:white;
+    padding:40px;
+    border-radius:15px;
+    box-shadow:0 5px 20px rgba(0,0,0,0.1);
+    transition:0.4s;
+}
+
+.card:hover{
+    transform:translateY(-10px);
+}
+
+.card h3{
+    margin-bottom:15px;
+    color:#caa14a;
+}
+
+/* Gallery */
+.soft-bg{
+    background:#fdf2ec;
+}
+
+.gallery{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:20px;
+}
+
+.gallery img{
+    width:100%;
+    height:250px;
+    object-fit:cover;
+    border-radius:15px;
+    transition:0.4s;
+}
+
+.gallery img:hover{
+    transform:scale(1.05);
+}
+
+/* Contact */
+.contact-container{
+    display:flex;
+    justify-content:space-between;
+    align-items:flex-start;
+    gap:40px;
+    flex-wrap:wrap;
+}
+
+.contact-box{
+    max-width:500px;
+}
+
+.contact-box input,
+.contact-box textarea{
+    width:100%;
+    padding:15px;
+    margin-bottom:20px;
+    border:1px solid #ddd;
+    border-radius:10px;
+}
+
+.contact-right{
+    display:flex;
+    flex-direction:column;
+    gap:20px;
+}
+
+.contact-map iframe{
+    width:350px;
+    height:300px;
+    border-radius:12px;
+    box-shadow:0 8px 20px rgba(0,0,0,0.15);
+}
+
+.contact-right img{
+    width:320px;
+    border-radius:10px;
+    box-shadow:0 10px 25px rgba(0,0,0,0.2);
+}
+
+/* Testimonials */
+.testimonials-page{
+    padding:100px 80px;
+    background:#fdf2ec;
+}
+
+.testimonial-container{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:30px;
+}
+
+.testimonial-card{
+    background:white;
+    padding:30px;
+    border-radius:15px;
+    box-shadow:0 5px 20px rgba(0,0,0,0.1);
+    transition:0.4s;
+}
+
+.testimonial-card:hover{
+    transform:translateY(-8px);
+}
+
+.testimonial-card h4{
+    color:#caa14a;
+}
+
+/* Payment Section */
+.payment-section{
+    padding:90px 10%;
+    background:linear-gradient(135deg,#fde8e4,#fff5f0,#f9e0d9);
+}
+
+.payment-container{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:40px;
+    flex-wrap:wrap;
+}
+
+.booking-form{
+    flex:1;
+    background:white;
+    padding:40px;
+    border-radius:15px;
+    box-shadow:0 15px 40px rgba(0,0,0,0.15);
+}
+
+.booking-form input{
+    width:100%;
+    padding:14px;
+    margin:12px 0;
+    border:1px solid #ddd;
+    border-radius:8px;
+}
+
+.book-btn{
+    width:100%;
+    padding:15px;
+    background:linear-gradient(45deg,#d4a373,#c0895a);
+    color:white;
+    border:none;
+    border-radius:8px;
+    cursor:pointer;
+}
+
+/* QR Payment */
+.payment-box{
+    flex:1;
+    background-image: url("/static/qr.png");
+    text-align:center;
+    background:white;
+    padding:40px;
+    border-radius:15px;
+    box-shadow:0 15px 40px rgba(0,0,0,0.15);
+}
+
+.payment-box img{
+    width:230px;
+    margin-top:15px;
+    border-radius:12px;
+}
+
+/* Footer */
+footer{
+    background:#caa14a;
+    color:white;
+    padding:20px;
+    text-align:center;
+}
+
+/* Responsive */
+@media(max-width:768px){
+
+header{
+padding:20px;
+}
+
+.section{
+padding:80px 20px;
+}
+
+.hero h1{
+font-size:35px;
+}
+
+.about-container{
+flex-direction:column;
+text-align:center;
+}
+
+.contact-container{
+flex-direction:column;
+}
+
+.payment-container{
+flex-direction:column;
+}
+
+}
+
+
+    
