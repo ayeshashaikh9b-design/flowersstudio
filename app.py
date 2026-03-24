@@ -57,11 +57,7 @@ def init_db():
 # ---------------- HOME ----------------
 @app.route("/")
 def home():
-    return render_template(
-        "index.html",
-        admin_access=session.get('admin_logged_in', False),
-        user_access=session.get('user_logged_in', False),
-        username=session.get('username')
+    return render_template
     )
 
 # ---------------- SIGNUP ----------------
