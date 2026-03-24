@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>🌸 Admin Login</title>
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap">
+
+<style>
+
+
+/* Button */
+.admin-btn{
+    background:gold;
+    color:black !important;
+    padding:8px 8px;
+    border-radius:25px;
+    font-weight:600;
+    transition:0.3s;
+}
+
+.admin-btn:hover{
+    background:#000;
+    color:gold !important;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg,#0f172a,#1e293b);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    height:100vh;
+    color:white;
+}
+
+.box {
+    background:#1e293b;
+    padding:30px;
+    border-radius:10px;
+    width:300px;
+    text-align:center;
+}
+
+input {
+    width:100%;
+    padding:10px;
+    margin:10px 0;
+    border:none;
+    border-radius:6px;
+}
+
+button {
+    width:100%;
+    padding:10px;
+    background:#f472b6;
+    border:none;
+    border-radius:6px;
+    color:white;
+    cursor:pointer;
+}
+</style>
+</head>
+
+<body>
+
+<div class="box">
+<h2>🌸 Admin Login</h2>
+
+<form method="POST" action="/admin-login">
+<input type="text" name="username" placeholder="Username" required>
+<input type="password" name="password" placeholder="Password" required>
+<button type="submit">🚀 Login</button>
+</form>
+
+</div>
+
+</body>
+</html>
