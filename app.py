@@ -1,6 +1,7 @@
 from flask import Flask, render_template, request, redirect, session, g
 import sqlite3
 import random
+import os
 
 app = Flask(__name__)
 app.secret_key = "super_secret_key"
@@ -23,6 +24,7 @@ def close_db(error):
 # ---------------- INIT DB ----------------
 def init_db():
     db = get_db()
+    
     db.execute('''
         CREATE TABLE IF NOT EXISTS users (
             id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -30,6 +32,7 @@ def init_db():
             password TEXT
         )
     ''')
+
     db.execute('''
         CREATE TABLE IF NOT EXISTS bookings (
             id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -39,6 +42,7 @@ def init_db():
             guests TEXT
         )
     ''')
+
     db.execute('''
         CREATE TABLE IF NOT EXISTS enquiries (
             id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -47,6 +51,7 @@ def init_db():
             message TEXT
         )
     ''')
+
     db.commit()
 
 # ---------------- HOME ----------------
@@ -88,7 +93,8 @@ def login():
 
         db = get_db()
         user = db.execute(
-            "SELECT * FROM users WHERE username=? AND password=?", (username, password)
+            "SELECT * FROM users WHERE username=? AND password=?",
+            (username, password)
         ).fetchone()
 
         if user:
@@ -96,10 +102,10 @@ def login():
             session['username'] = username
             return redirect('/')
         else:
-            # Guest login if fields are empty
+            # Guest login
             if not username and not password:
                 session['user_logged_in'] = True
-                session['username'] = "Guest" + str(random.randint(1000,9999))
+                session['username'] = "Guest" + str(random.randint(1000, 9999))
                 return redirect('/')
             return render_template('login.html', error="Invalid username or password ❌")
 
@@ -112,7 +118,6 @@ def admin_login():
         admin_name = request.form.get('admin_name')
         admin_pass = request.form.get('admin_pass')
 
-        # Hard-coded admin credentials
         if admin_name == 'hamza' and admin_pass == 'admin123':
             session['admin_logged_in'] = True
             session['username'] = admin_name
@@ -124,9 +129,7 @@ def admin_login():
 # ---------------- LOGOUT ----------------
 @app.route('/logout')
 def logout():
-    session.pop('user_logged_in', None)
-    session.pop('admin_logged_in', None)
-    session.pop('username', None)
+    session.clear()
     return redirect('/')
 
 # ---------------- ADMIN PANEL ----------------
@@ -190,4 +193,6 @@ def report():
 if __name__ == "__main__":
     with app.app_context():
         init_db()
-    app.run(host="0.0.0.0", port=10000 , debug=True)
+
+    port = int(os.environ.get("PORT", 10000))  # Important for deployment
+    app.run(host="0.0.0.0", port=port, debug=True)
